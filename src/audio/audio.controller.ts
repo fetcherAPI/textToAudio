@@ -33,6 +33,7 @@ export class AudioController {
         speaker_id: {
           type: 'number',
           example: 2,
+
           description: 'can choose 1 or 2',
         },
       },
