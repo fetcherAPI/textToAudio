@@ -3,7 +3,9 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: ['error', 'warn', 'debug', 'log', 'fatal', 'verbose'],
+  });
 
   app.enableCors({
     origin: '*',
@@ -12,6 +14,7 @@ async function bootstrap() {
   });
 
   app.setGlobalPrefix('api');
+
   const config = new DocumentBuilder()
     .setTitle('swagger test')
     .setDescription('this is the test of swagger api')
